@@ -1,0 +1,46 @@
+<h4 appHoverColorBlue>REGISTRO DE DIRECCION</h4>
+<hr>
+<h5 appHoverColorBlue>
+  Recuerda completar todos los formularios para vizualizar todos los datos de el envio
+</h5>
+
+<div *ngIf="delivery === null;else info">
+  <div class="alert alert-warning text-center">
+    NO TIENE UNA DIRECCION REGISTRADA
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <ol appHoverColorBlue>
+        <li>Paso : Completa el formulario de direccion</li>
+        <li>Paso : Completa el formulario de fecha y hora estimada de entrega</li>
+        <li>Paso : Diregete a la opcion home para visualizar el registro de tu envio</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #info>
+    <table class="table table-striped table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">DEPARTMENT ID</th>
+            <th scope="col">CITY</th>
+            <th scope="col">NAME PERSON</th>
+            <th scope="col">DELIVERY</th>
+            <th scope="col">FECHA Y HORA DE ENTREGA</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{delivery?.departmentId != null ? delivery?.departmentId : 'Por Favor llena el formulario de direccion'}}</td>
+            <td>{{delivery?.city != null ? delivery?.city : 'Por Favor llena el formulario de direccion'}}</td>
+            <td>{{delivery?.name != null ? delivery?.name : 'Por Favor llena el formulario de direccion' }}</td>
+            <td>{{delivery?.delivery != null ? delivery?.delivery : 'Por Favor llena el formulario de direccion'}}</td>
+            <td>{{delivery?.dateTime != null ? (delivery?.dateTime | date: 'dd/MM/yyyy hh:mm a')  : 'Por Favor crear una fecha y hora de envio'}}</td>
+          </tr>
+        </tbody>
+      </table>
+</ng-template>

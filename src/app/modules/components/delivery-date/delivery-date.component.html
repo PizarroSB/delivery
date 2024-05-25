@@ -1,0 +1,10 @@
+<form [formGroup]="formDate">
+    <div class="form-group">
+        <label for="dateDeliveryId">selecciona una fecha y hora estimada de envio</label>
+        <div>
+            <input type="datetime-local" id="dateDeliveryId" name="dateDeliveryId" formControlName="dateDelivery">
+        </div>
+    </div>
+    <hr>
+    <button class="btn btn-primary" [disabled]="!formDate.valid" (click)="emitDelivery()">REGISTRAR FECHA Y HORA</button>
+</form>
